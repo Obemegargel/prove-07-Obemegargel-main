@@ -158,7 +158,7 @@ public class LinkedList : IEnumerable<int> {
                     curr.Next.Prev = null;
                     _head = curr.Next;
                     curr = null;//?
-                    Console.WriteLine("at front of the list worked");
+                    // Console.WriteLine("at front of the list worked");
                     return;
                 }
 
@@ -167,7 +167,7 @@ public class LinkedList : IEnumerable<int> {
                     curr.Prev.Next = null;
                     _tail = curr.Prev;
                     curr = null;
-                    Console.WriteLine("at end of the list worked");
+                    // Console.WriteLine("at end of the list worked");
                     return;
                 }
                 
@@ -176,7 +176,7 @@ public class LinkedList : IEnumerable<int> {
                     curr.Prev.Next = curr.Next;//sets the curr Node's previous' next value to curr value's next node
                     curr.Next.Prev = curr.Prev;//sets curr Node's next node's previous value to curr Node's previous node (opposite of the one above)
                     curr = null;//deletes the current Node that haas the value to be deleted.
-                    Console.WriteLine("if statement happened");
+                    // Console.WriteLine("if statement happened");
                 }
                 
                 
@@ -198,47 +198,15 @@ public class LinkedList : IEnumerable<int> {
     public void Replace(int oldValue, int newValue) {//**********?????????? look down until you find next ** and ??
         // TODO Problem 4
         Node? curr = _head;
-        // var newNode = new Node(newValue);
-        if (curr.Data == oldValue)
+        while (curr is not null)
         {
-            // var newNode = new Node(newValue);
-            if (curr.Prev == null)//this is for _head
+            if (curr.Data == oldValue)
             {
-                var newNode = new Node(newValue);
-                newNode.Prev = null;
-                newNode.Next = curr.Next;
-                //newNode = _head;
-                curr = newNode;
-                //curr = _head;
+                curr.Data = newValue;
             }
-            
-            if (curr.Next == null)//this is for _tail
-            {
-                var newNode = new Node(newValue);
-                newNode.Next = null;
-                newNode.Prev = curr.Prev;
-                //newNode = _tail;
-                curr = newNode;
-                //curr = _tail;
-            }
-            else
-            {
-                var newNode = new Node(newValue);
-                newNode.Next = curr.Next;
-                newNode.Prev = curr.Prev;
-                curr = newNode;//curr.Data = newNode.Data does not work either why??????????????
-
-            }
-            //var newNode = new Node(newValue);
-            // newNode.Prev = curr; // Connect new node to the node containing 'value'
-            // newNode.Next = curr.Next; // Connect new node to the node after 'value'
-            // curr.Next.Prev = newNode; // Connect node after 'value' to the new node
-            // curr.Next = newNode; // Connect the node containing 'value' to the new node
-            // curr.Data = newValue;
-            // Console.WriteLine("if statement happened");
+            curr = curr.Next;//go to the next node to find the one with the right value
         }
-        
-        curr = curr.Next;//go to the next node to find the one with the right value
+       
     }
 
     /// <summary>
@@ -265,11 +233,6 @@ public class LinkedList : IEnumerable<int> {
     /// </summary>
     public IEnumerable Reverse() {
         // TODO Problem 5
-        //test code
-        // foreach(var item in myLinkedList) {//***********is this supposed to be a variable I create or one that already exists????????????????
-        //     Console.WriteLine(item);
-        // }
-        //end of test code
         var curr = _tail; // Start at the beginning since this is a forward iteration.
         while (curr is not null) {
             yield return curr.Data; // Provide (yield) each item to the user
