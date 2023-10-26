@@ -128,26 +128,14 @@ public class LinkedList : IEnumerable<int> {
     /// Removes the first node that contains 'value'.
     /// </summary>
     public void Remove(int value) {
-        // TODO Problem 
+        // TODO Problem 3
         //create node to keep track of which node you are at and which one you started from
         Node? curr = _head;
         while (curr is not null)
         {
             if (curr.Data == value)
             {
-                // //check if linked list has only one item in it, if so set _head and _tail to null
-                // if (_head == _tail)
-                // {
-                //     _head = null;
-                //     _tail = null;
-                // }
-                // else
-                // {
-                //     
-                //     curr.Prev.Next = curr.Next;//sets the curr Node's previous' next value to curr value's next node
-                //     curr.Next.Prev = curr.Prev;//sets curr Node's next node's previous value to curr Node's previous node (opposite of the one above)
-                //     curr = null;//deletes the current Node that haas the value to be deleted.
-                // }
+                
                 //____________________________
                 if (curr.Prev == null)// *******This one works now, but next and #4 does notWHY DOES THIS NOT GET RID OF THE FIRST THING IN THE linked List?????**********
                                         // **** also, this is a copy from github but one seperate form the first and this has no github connection. WHy?
