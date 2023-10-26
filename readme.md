@@ -43,5 +43,5 @@ foreach(var item in myLinkedList.Reverse()) {
 
 ## Submission
 You need to submit the following for this assignment:
-* Make sure all of your changes are committed and pushed to the `main` branch of your **prove-07-Obemegargel** repository
+* Make sure all of your changes are committed and pushed to the `main` branch of your **prove-07-Obemegargel-main** repository
 * Submit a link to your repository in I-Learn
